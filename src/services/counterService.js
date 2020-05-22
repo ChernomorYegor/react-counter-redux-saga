@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://github.com/ChernomorYegor/react-counter-redux-saga/blob/master/src/db/db.json';
 
 class CounterService {
     async getItems() {
