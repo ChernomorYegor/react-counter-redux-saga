@@ -1,4 +1,4 @@
-const BASE_URL = 'https://github.com/ChernomorYegor/react-counter-redux-saga/blob/master/src/db/db.json';
+const BASE_URL = 'http://localhost:3001';
 
 class CounterService {
     async getItems() {
@@ -8,6 +8,7 @@ class CounterService {
     }
 
     async setItem(counter) {
+        console.log(counter);
         const result = await fetch(`${BASE_URL}/counters/${counter.id}`, {
             method: 'PUT',
             headers: {
