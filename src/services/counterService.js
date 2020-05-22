@@ -8,7 +8,6 @@ class CounterService {
     }
 
     async setItem(counter) {
-        console.log(counter);
         const result = await fetch(`${BASE_URL}/counters/${counter.id}`, {
             method: 'PUT',
             headers: {
