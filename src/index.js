@@ -1,14 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
+import {createStore, applyMiddleware} from 'redux'
+import reducer from './reducers';
+import {Provider} from 'react-redux';
+import logger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
+import counterSaga from './sagas/counterSaga';
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(reducer, applyMiddleware(logger, sagaMiddleware));
+
+sagaMiddleware.run(counterSaga);
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

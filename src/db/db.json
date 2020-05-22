@@ -1,0 +1,16 @@
+{
+  "counters": [
+    {
+      "id": 1,
+      "counter": 5
+    },
+    {
+      "id": 2,
+      "counter": 0
+    },
+    {
+      "id": 3,
+      "counter": 12
+    }
+  ]
+}
